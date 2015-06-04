@@ -25,19 +25,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="MainPage.jsp" class="navbar-brand">智能服务平台</a>
-    </div>
+
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li  class="active">
+          <a><font color=yellow size=4>智能服务平台</font></a>
+        
+      </ul>
+      <ul class="nav navbar-nav">
+        <li  class="active">
+          <li>
           <a href="MainPage.jsp">首页</a>
+          </li>
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -49,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <%
       if((request.getSession()).getValue("LogInUser")!=null){
       out.println("<li>");
-      out.println("<a href=\"/Smart_Service_Platform/UserInfo.jsp?userid="+((User)(request.getSession()).getValue("LogInUser")).getid()+"\">您好,"+((User)(request.getSession()).getValue("LogInUser")).getName()+"</a>");
+      out.println("<a href=\"/Smart_Service_Platform/UserInfo.jsp?userid="+((User)(request.getSession()).getValue("LogInUser")).getid()+"\"target=\"_blank\">您好,"+((User)(request.getSession()).getValue("LogInUser")).getName()+"</a>");
       out.println("</li>");
       out.println("<li>");
       out.println("<a href=\"/Smart_Service_Platform/servlet/LogOut\">注销</a>");
@@ -82,13 +81,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        out.println("<hr>");
        out.println("<h4>平台服务</h4>");
        out.println("<hr>");
-       ArrayList postlist=new ArrayList<Post>();
-       PostDAO postdao=new PostDAO();
-       postlist=postdao.GetGlobalLatestPost(5);
-       for(int i=0;i<postlist.size();i++){
-			out.println("<h5>"+"<a href=\""+((Post)(postlist.get(i))).getposturl()+"\">"+((Post)(postlist.get(i))).getpostname()+"</a><br>"+"</h5>");
-			out.println("<h6>"+((Post)(postlist.get(i))).getcontent()+"</h6>");
-			out.println("<p>"+((Post)(postlist.get(i))).getbirthday()+"</p>");
+       ArrayList platservicelist=new ArrayList<PlatService>();
+       PlatServiceDAO platservicedao=new PlatServiceDAO();
+       platservicelist=platservicedao.GetGlobalLatestPlatService(5);
+       for(int i=0;i<platservicelist.size();i++){
+			out.println("<h5>"+"<a href=\""+((PlatService)(platservicelist.get(i))).getplatserviceurl()+"\"target=\"_blank\">"+((PlatService)(platservicelist.get(i))).getplatservicename()+"</a><br>"+"</h5>");
+			out.println("<h6>"+((PlatService)(platservicelist.get(i))).getcontent()+"</h6>");
+			out.println("<p>"+((PlatService)(platservicelist.get(i))).getbirthday()+"</p>");
+       }
+       
+       out.println("<hr>");
+       out.println("<h4>酒店服务</h4>");
+       out.println("<hr>");
+       ArrayList hotelservicelist=new ArrayList<HotelService>();
+       HotelServiceDAO hotelservicedao=new HotelServiceDAO();
+       hotelservicelist=hotelservicedao.GetGlobalLatestHotelService(5);
+       for(int i=0;i<hotelservicelist.size();i++){
+			out.println("<h5>"+"<a href=\""+((HotelService)(hotelservicelist.get(i))).gethotelurl()+"\"target=\"_blank\">"+((HotelService)(hotelservicelist.get(i))).gethotelservicename()+"</a><br>"+"</h5>");
+			out.println("<h6>"+"最低价："+((HotelService)(hotelservicelist.get(i))).gethotelprice()+"；"+((HotelService)(hotelservicelist.get(i))).gethoteltype()+"；"+((HotelService)(hotelservicelist.get(i))).gethotelarea()+"</h6>");
+			out.println("<h6>"+((HotelService)(hotelservicelist.get(i))).gethoteladd()+"</h6>");
+			out.println("<IMG alt=\"\" src="+((HotelService)(hotelservicelist.get(i))).gethotelpic()+" width=\"200\" />");
        }
 		%>
 		<hr>
@@ -102,14 +114,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <%
         out.println("<h4>服务推荐</h4>");
         out.println("<hr>");
-       	ArrayList postlist2=new ArrayList<Post>();
-       	PostDAO postdao2=new PostDAO();
-       	postlist2=postdao2.GetGlobalLatestPost(5);
-       	for(int i=0;i<postlist.size();i++){
-			out.println("<h5>"+"<a href=\""+((Post)(postlist2.get(i))).getposturl()+"\">"+((Post)(postlist2.get(i))).getpostname()+"</a><br>"+"</h5>");
-			out.println("<h6>"+((Post)(postlist2.get(i))).getcontent()+"</h6>");
-			out.println("<p>"+((Post)(postlist2.get(i))).getbirthday()+"</p>");
-       	}
+        out.println("<h4>平台服务</h4>");
+        out.println("<hr>");
+        ArrayList platservicelistrec=new ArrayList<PlatService>();
+        PlatServiceDAO platservicedaorec=new PlatServiceDAO();
+        platservicelistrec=platservicedaorec.GetGlobalLatestPlatService(5);
+        for(int i=0;i<platservicelistrec.size();i++){
+ 			out.println("<h5>"+"<a href=\""+((PlatService)(platservicelistrec.get(i))).getplatserviceurl()+"\"target=\"_blank\">"+((PlatService)(platservicelistrec.get(i))).getplatservicename()+"</a><br>"+"</h5>");
+ 			out.println("<h6>"+((PlatService)(platservicelistrec.get(i))).getcontent()+"</h6>");
+ 			out.println("<p>"+((PlatService)(platservicelistrec.get(i))).getbirthday()+"</p>");
+        }
+        
+        out.println("<hr>");
+        out.println("<h4>酒店服务</h4>");
+        out.println("<hr>");
+        ArrayList hotelservicelistrec=new ArrayList<HotelService>();
+        HotelServiceDAO hotelservicedaorec=new HotelServiceDAO();
+        hotelservicelistrec=hotelservicedaorec.GetGlobalLatestHotelService(5);
+        for(int i=0;i<hotelservicelistrec.size();i++){
+ 			out.println("<h5>"+"<a href=\""+((HotelService)(hotelservicelistrec.get(i))).gethotelurl()+"\"target=\"_blank\">"+((HotelService)(hotelservicelistrec.get(i))).gethotelservicename()+"</a><br>"+"</h5>");
+ 			out.println("<h6>"+"最低价："+((HotelService)(hotelservicelistrec.get(i))).gethotelprice()+"；"+((HotelService)(hotelservicelistrec.get(i))).gethoteltype()+"；"+((HotelService)(hotelservicelistrec.get(i))).gethotelarea()+"</h6>");
+ 			out.println("<h6>"+((HotelService)(hotelservicelistrec.get(i))).gethoteladd()+"</h6>");
+ 			out.println("<IMG alt=\"\" src="+((HotelService)(hotelservicelistrec.get(i))).gethotelpic()+" width=\"200\" />");
+        }
 		%>
 		<hr>
       	</div>     

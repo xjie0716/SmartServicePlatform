@@ -147,25 +147,25 @@ public class UserDAO {
 		
 	}
     
-    public ArrayList GetOwnPost(User user) throws SQLException, IllegalAccessException, ClassNotFoundException{
+    public ArrayList GetOwnPlatService(User user) throws SQLException, IllegalAccessException, ClassNotFoundException{
     	ArrayList al = new ArrayList();
 				
 
 			connection=DBManager.getConnection();
 			state=connection.createStatement();
-			String sqlStr="select * from post where ownerid="+user.id+" order by birthday desc";
+			String sqlStr="select * from platservice where ownerid="+user.id+" order by birthday desc";
 			resultSet=state.executeQuery(sqlStr);
 			
 			while(resultSet.next()){
-				Post ps=new Post();
-				ps.setidpost(resultSet.getInt("idpost"));
-				ps.setpostname(resultSet.getString("postname"));
+				PlatService ps=new PlatService();
+				ps.setplatserviceid(resultSet.getInt("platserviceid"));
+				ps.setplatservicename(resultSet.getString("platservicename"));
 				ps.setclassid(resultSet.getInt("classid"));
 				ps.setcontent(resultSet.getString("content"));
 				ps.setbirthday(resultSet.getTimestamp("birthday"));
 				ps.setownid(resultSet.getInt("ownerid"));
 			    ps.setownername(resultSet.getString("ownername"));
-			    ps.setposturl(resultSet.getString("posturl"));
+			    ps.setplatserviceurl(resultSet.getString("platserviceurl"));
 				
 				al.add(ps); // ¼Óµ½ÈÝÆ÷
 			}

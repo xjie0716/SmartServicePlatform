@@ -1,23 +1,23 @@
 package net.simflow.ssp;
 import java.sql.Date;
 import java.sql.Timestamp;
-public class Post {
-public int idpost;
-public String postname;
+public class PlatService {
+public int platserviceid;
+public String platservicename;
 public int classid;
 public String content;
 public Timestamp birthday;
 public int ownerid;
 public String ownername;
-public String posturl;
-public Post(){
+public String platserviceurl;
+public PlatService(){
 	
 }
-public void setposturl(String url){
-	this.posturl=url;
+public void setplatserviceurl(String url){
+	this.platserviceurl=url;
 }
-public String getposturl(){
-	return this.posturl;
+public String getplatserviceurl(){
+	return this.platserviceurl;
 }
 public void setownername(String name){
 	this.ownername=name;
@@ -25,11 +25,11 @@ public void setownername(String name){
 public String getownername(){
 	return this.ownername;
 }
-public void  setidpost(int id){
-	this.idpost=id;
+public void  setplatserviceid(int id){
+	this.platserviceid=id;
 }
-public int getidpost(){
-	return this.idpost;
+public int getplatserviceid(){
+	return this.platserviceid;
 }
 public void setownid(int id){
 	this.ownerid=id;
@@ -43,11 +43,11 @@ public void setclassid(int num){
 public int getclassid(){
 	return this.classid;
 }
-public void setpostname(String name){
-	this.postname=name;
+public void setplatservicename(String name){
+	this.platservicename=name;
 }
-public String getpostname(){
-	return this.postname;
+public String getplatservicename(){
+	return this.platservicename;
 }
 public void setbirthday(Timestamp date){
 	this.birthday=date;

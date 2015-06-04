@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50015
 File Encoding         : 65001
 
-Date: 2015-06-02 11:06:06
+Date: 2015-06-04 23:36:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,3 +38,4 @@ INSERT INTO `user` VALUES ('32', 'nana', 'nana', 'nana@gmail.com', '24');
 INSERT INTO `user` VALUES ('33', 'hutaogege', 'hutaogege', 'hutaogege@gmail.com', '24');
 INSERT INTO `user` VALUES ('34', '1111', '1111', '1111', '11');
 INSERT INTO `user` VALUES ('42', '郝予实', '111', '11111', '11');
+INSERT INTO `user` VALUES ('44', '王宇珩wyh123', 'www', 'www', '12');

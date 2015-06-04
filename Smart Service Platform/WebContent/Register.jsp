@@ -28,20 +28,17 @@ pre code { background: transparent; }
  <script src="scripts/my.js" type="text/javascript"></script>
   <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="#" class="navbar-brand">智能服务平台</a>
-    </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li  class="active">
-          <a href="/Smart_Service_Platform/MainPage.jsp">首页</a>
-        </li>
+          <a><font color=yellow size=4>智能服务平台</font></a>
+        
+      </ul>
+      <ul class="nav navbar-nav">
+        <li  class="active">
+          <li>
+          <a href="MainPage.jsp">首页</a>
+          </li>
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -56,7 +53,7 @@ pre code { background: transparent; }
 </header>
 
 <div class="container">
-      <form  id="RegisterForm" name="RegisterForm" class="form-signin" role="form" method="post"  action="servlet/AddUser">
+      <form  id="RegisterForm" name="RegisterForm" class="form-signin" role="form" method="service"  action="servlet/AddUser">
         <h2 class="form-signin-heading">请注册</h2>
         <input  id="name" name="name" type="text" class="form-control" placeholder="用户名" required autofocus>
         <br> 

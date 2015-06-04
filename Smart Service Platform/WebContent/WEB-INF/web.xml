@@ -33,22 +33,22 @@
 <servlet>
   <description>This is the description of my J2EE component</description>
   <display-name>This is the display name of my J2EE component</display-name>
-  <servlet-name>PostDAO</servlet-name>
-  <servlet-class>net.simflow.ssp.PostDAO</servlet-class>
+  <servlet-name>PlatServiceDAO</servlet-name>
+  <servlet-class>net.simflow.ssp.PlatServiceDAO</servlet-class>
 </servlet>
 <servlet-mapping>
-  <servlet-name>PostDAO</servlet-name>
-  <url-pattern>/servlet/PostDAO</url-pattern>
+  <servlet-name>PlatServiceDAO</servlet-name>
+  <url-pattern>/servlet/PlatServiceDAO</url-pattern>
 </servlet-mapping>
 <servlet>
   <description>This is the description of my J2EE component</description>
   <display-name>This is the display name of my J2EE component</display-name>
-  <servlet-name>Post</servlet-name>
-  <servlet-class>net.simflow.ssp.Post</servlet-class>
+  <servlet-name>PlatService</servlet-name>
+  <servlet-class>net.simflow.ssp.PlatService</servlet-class>
 </servlet>
 <servlet-mapping>
-  <servlet-name>Post</servlet-name>
-  <url-pattern>/servlet/Post</url-pattern>
+  <servlet-name>PlatService</servlet-name>
+  <url-pattern>/servlet/PlatService</url-pattern>
 </servlet-mapping>
 <servlet>
   <description>This is the description of my J2EE component</description>

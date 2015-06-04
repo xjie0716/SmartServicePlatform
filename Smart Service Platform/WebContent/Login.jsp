@@ -39,20 +39,18 @@ pre code { background: transparent; }
 <body>
  <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="#" class="navbar-brand disabled">智能服务平台</a>
-    </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li  class="active">
-          <a href="/Smart_Service_Platform/MainPage.jsp">首页</a>
-        </li>
+          <a><font color=yellow size=4>智能服务平台</font></a>
+        
+      </ul>
+      <ul class="nav navbar-nav">
+        <li  class="active">
+          <li>
+          <a href="MainPage.jsp">首页</a>
+          </li>
+        
       </ul>
       <ul class="nav navbar-nav navbar-right">
              <li>
@@ -64,7 +62,7 @@ pre code { background: transparent; }
 </header>
 
 <div class="container">
-      <form class="form-signin" role="form" method="post"  action="/Smart_Service_Platform/servlet/CheckUserExist">
+      <form class="form-signin" role="form" method="service"  action="/Smart_Service_Platform/servlet/CheckUserExist">
         <h2 class="form-signin-heading">请登录</h2>
         <input  id="user" name="user" type="text" class="form-control" placeholder="用户名" required autofocus>
         <br>
