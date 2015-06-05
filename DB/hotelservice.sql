@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50015
 File Encoding         : 65001
 
-Date: 2015-06-04 23:36:15
+Date: 2015-06-05 20:51:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,24 +20,24 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `hotelservice`;
 CREATE TABLE `hotelservice` (
-  `酒店ID` int(11) NOT NULL,
+  `hotelserviceid` int(11) NOT NULL,
   `classid` int(11) NOT NULL default '11',
-  `酒店名称` varchar(1000) default NULL,
-  `酒店类型` varchar(1000) default NULL,
-  `酒店区域` varchar(1000) default NULL,
-  `酒店地址` varchar(1000) default NULL,
-  `酒店最低价` int(11) default NULL,
-  `酒店基本信息` varchar(1000) default NULL,
-  `酒店简介` varchar(1000) default NULL,
-  `酒店网络设施` varchar(1000) default NULL,
-  `酒店停车场` varchar(1000) default NULL,
-  `酒店房间设施` varchar(3000) default NULL,
-  `酒店服务` varchar(3000) default NULL,
-  `酒店设施` varchar(3000) default NULL,
-  `酒店电话` varchar(1000) default NULL,
-  `酒店链接` varchar(1000) default NULL,
-  `酒店图片` varchar(1000) default NULL,
-  PRIMARY KEY  (`酒店ID`)
+  `hotelservicename` varchar(1000) default NULL,
+  `hoteltype` varchar(1000) default NULL,
+  `hotelarea` varchar(1000) default NULL,
+  `hoteladd` varchar(1000) default NULL,
+  `hotelprice` int(11) default NULL,
+  `hotelinfo` varchar(1000) default NULL,
+  `hotelintro` varchar(1000) default NULL,
+  `hotelwifi` varchar(1000) default NULL,
+  `hotelpark` varchar(1000) default NULL,
+  `hotelroom` varchar(3000) default NULL,
+  `hotelser` varchar(3000) default NULL,
+  `hotelins` varchar(3000) default NULL,
+  `hoteltel` varchar(1000) default NULL,
+  `hotelurl` varchar(1000) default NULL,
+  `hotelpic` varchar(1000) default NULL,
+  PRIMARY KEY  (`hotelserviceid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

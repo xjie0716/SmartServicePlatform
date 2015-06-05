@@ -22,7 +22,7 @@ public class HotelServiceDAO {
 	public HotelServiceDAO(){}
    public ArrayList SearchHotelService(String tmpstring) throws SQLException, IllegalAccessException, ClassNotFoundException{
 	   connection = DBManager.getConnection();
-		String sqlState = "SELECT * FROM hotelservice WHERE 酒店名称 like \"%"+tmpstring+"%\"";
+		String sqlState = "SELECT * FROM hotelservice WHERE hotelservicename like \"%"+tmpstring+"%\"";
 		ArrayList al=new ArrayList<HotelService>();
 			state = connection.createStatement();
 			resultSet = state.executeQuery(sqlState);
@@ -60,30 +60,30 @@ public class HotelServiceDAO {
    public ArrayList GetGlobalLatestHotelService(int HowLatest) throws SQLException, IllegalAccessException, ClassNotFoundException{
 	   connection = DBManager.getConnection();
 	   //SELECT * FROM hotelservice  order by birthday desc LIMIT 10
-		String sqlState = "SELECT * FROM hotelservice order by 酒店ID desc LIMIT "+HowLatest;
+		String sqlState = "SELECT * FROM hotelservice order by hotelserviceid desc LIMIT "+HowLatest;
 		ArrayList al=new ArrayList<HotelService>();
 			state = connection.createStatement();
 			resultSet = state.executeQuery(sqlState);
 		  while(resultSet.next())
 		  {
 			  HotelService hotelservice=new HotelService();
-			  	hotelservice.sethotelserviceid(resultSet.getInt("酒店ID"));
+			  	hotelservice.sethotelserviceid(resultSet.getInt("hotelserviceid"));
 				hotelservice.setclassid(resultSet.getInt("classid"));
-				hotelservice.sethotelservicename(resultSet.getString("酒店名称"));
-				hotelservice.sethoteltype(resultSet.getString("酒店类型"));
-				hotelservice.sethotelarea(resultSet.getString("酒店区域"));
-				hotelservice.sethoteladd(resultSet.getString("酒店地址"));
-				hotelservice.sethotelprice(resultSet.getInt("酒店最低价"));
-			    hotelservice.sethotelinfo(resultSet.getString("酒店基本信息"));
-			    hotelservice.sethotelintro(resultSet.getString("酒店简介"));
-			    hotelservice.sethotelwifi(resultSet.getString("酒店网络设施"));
-			    hotelservice.sethotelpark(resultSet.getString("酒店停车场"));
-			    hotelservice.sethotelroom(resultSet.getString("酒店房间设施"));
-			    hotelservice.sethotelser(resultSet.getString("酒店服务"));
-			    hotelservice.sethotelins(resultSet.getString("酒店设施"));
-			    hotelservice.sethoteltel(resultSet.getString("酒店电话"));
-			    hotelservice.sethotelurl(resultSet.getString("酒店链接"));
-			    hotelservice.sethotelpic(resultSet.getString("酒店图片"));
+				hotelservice.sethotelservicename(resultSet.getString("hotelservicename"));
+				hotelservice.sethoteltype(resultSet.getString("hoteltype"));
+				hotelservice.sethotelarea(resultSet.getString("hotelarea"));
+				hotelservice.sethoteladd(resultSet.getString("hoteladd"));
+				hotelservice.sethotelprice(resultSet.getInt("hotelprice"));
+			    hotelservice.sethotelinfo(resultSet.getString("hotelinfo"));
+			    hotelservice.sethotelintro(resultSet.getString("hotelintro"));
+			    hotelservice.sethotelwifi(resultSet.getString("hotelwifi"));
+			    hotelservice.sethotelpark(resultSet.getString("hotelpark"));
+			    hotelservice.sethotelroom(resultSet.getString("hotelroom"));
+			    hotelservice.sethotelser(resultSet.getString("hotelser"));
+			    hotelservice.sethotelins(resultSet.getString("hotelins"));
+			    hotelservice.sethoteltel(resultSet.getString("hoteltel"));
+			    hotelservice.sethotelurl(resultSet.getString("hotelurl"));
+			    hotelservice.sethotelpic(resultSet.getString("hotelpic"));
 		      
 			     al.add(hotelservice);
 		  }
@@ -97,7 +97,7 @@ public class HotelServiceDAO {
 	 
 		connection=DBManager.getConnection();		
 		StringBuffer SqlState=new StringBuffer();
-		SqlState.append("INSERT INTO hotelservice(酒店ID,classid,酒店名称,酒店类型,酒店区域,酒店地址,酒店最低价,酒店基本信息,酒店简介,酒店网络设施,酒店停车场,酒店房间设施,酒店服务,酒店设施,酒店电话,酒店链接,酒店图片)");
+		SqlState.append("INSERT INTO hotelservice(hotelserviceid,classid,hotelservicename,hoteltype,hotelarea,hoteladd,hotelprice,hotelinfo,hotelintro,hotelwifi,hotelpark,hotelroom,hotelser,hotelins,hoteltel,hotelurl,hotelpic)");
 		SqlState.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		try{
 		
