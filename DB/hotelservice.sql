@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
-Source Server Version : 50015
-Source Host           : localhost:3306
+Source Server         : ssp
+Source Server Version : 50544
+Source Host           : 166.111.180.111:3306
 Source Database       : ssp
 
 Target Server Type    : MYSQL
-Target Server Version : 50015
+Target Server Version : 50544
 File Encoding         : 65001
 
-Date: 2015-06-05 20:51:59
+Date: 2015-06-09 22:18:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,23 +21,23 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `hotelservice`;
 CREATE TABLE `hotelservice` (
   `hotelserviceid` int(11) NOT NULL,
-  `classid` int(11) NOT NULL default '11',
-  `hotelservicename` varchar(1000) default NULL,
-  `hoteltype` varchar(1000) default NULL,
-  `hotelarea` varchar(1000) default NULL,
-  `hoteladd` varchar(1000) default NULL,
-  `hotelprice` int(11) default NULL,
-  `hotelinfo` varchar(1000) default NULL,
-  `hotelintro` varchar(1000) default NULL,
-  `hotelwifi` varchar(1000) default NULL,
-  `hotelpark` varchar(1000) default NULL,
-  `hotelroom` varchar(3000) default NULL,
-  `hotelser` varchar(3000) default NULL,
-  `hotelins` varchar(3000) default NULL,
-  `hoteltel` varchar(1000) default NULL,
-  `hotelurl` varchar(1000) default NULL,
-  `hotelpic` varchar(1000) default NULL,
-  PRIMARY KEY  (`hotelserviceid`)
+  `classid` int(11) NOT NULL DEFAULT '11',
+  `hotelservicename` varchar(1000) DEFAULT NULL,
+  `hoteltype` varchar(1000) DEFAULT NULL,
+  `hotelarea` varchar(1000) DEFAULT NULL,
+  `hoteladd` varchar(1000) DEFAULT NULL,
+  `hotelprice` int(11) DEFAULT NULL,
+  `hotelinfo` varchar(1000) DEFAULT NULL,
+  `hotelintro` varchar(1000) DEFAULT NULL,
+  `hotelwifi` varchar(1000) DEFAULT NULL,
+  `hotelpark` varchar(1000) DEFAULT NULL,
+  `hotelroom` varchar(3000) DEFAULT NULL,
+  `hotelser` varchar(3000) DEFAULT NULL,
+  `hotelins` varchar(3000) DEFAULT NULL,
+  `hoteltel` varchar(1000) DEFAULT NULL,
+  `hotelurl` varchar(1000) DEFAULT NULL,
+  `hotelpic` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`hotelserviceid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

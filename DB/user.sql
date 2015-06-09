@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
-Source Server Version : 50015
-Source Host           : localhost:3306
+Source Server         : ssp
+Source Server Version : 50544
+Source Host           : 166.111.180.111:3306
 Source Database       : ssp
 
 Target Server Type    : MYSQL
-Target Server Version : 50015
+Target Server Version : 50544
 File Encoding         : 65001
 
-Date: 2015-06-04 23:36:48
+Date: 2015-06-09 22:18:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,13 +20,13 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` varchar(45) default NULL,
-  `password` varchar(45) default NULL,
-  `email` varchar(45) default NULL,
-  `age` varchar(45) default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `age` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user

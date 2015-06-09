@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
-Source Server Version : 50015
-Source Host           : localhost:3306
+Source Server         : ssp
+Source Server Version : 50544
+Source Host           : 166.111.180.111:3306
 Source Database       : ssp
 
 Target Server Type    : MYSQL
-Target Server Version : 50015
+Target Server Version : 50544
 File Encoding         : 65001
 
-Date: 2015-06-04 23:36:35
+Date: 2015-06-09 22:18:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,17 +21,17 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `scenicspotservice`;
 CREATE TABLE `scenicspotservice` (
   `景点ID` int(11) NOT NULL,
-  `classid` int(11) NOT NULL default '13',
-  `景点名称` varchar(1000) default NULL,
-  `景点介绍` varchar(1000) default NULL,
-  `景点地址` varchar(1000) default NULL,
-  `景点交通` varchar(1000) default NULL,
-  `景点门票` varchar(1000) default NULL,
-  `景点开放时间` varchar(1000) default NULL,
-  `景点用时参考` varchar(1000) default NULL,
-  `景点链接` varchar(1000) default NULL,
-  `景点图片` varchar(1000) default NULL,
-  PRIMARY KEY  (`景点ID`)
+  `classid` int(11) NOT NULL DEFAULT '13',
+  `景点名称` varchar(1000) DEFAULT NULL,
+  `景点介绍` varchar(1000) DEFAULT NULL,
+  `景点地址` varchar(1000) DEFAULT NULL,
+  `景点交通` varchar(1000) DEFAULT NULL,
+  `景点门票` varchar(1000) DEFAULT NULL,
+  `景点开放时间` varchar(1000) DEFAULT NULL,
+  `景点用时参考` varchar(1000) DEFAULT NULL,
+  `景点链接` varchar(1000) DEFAULT NULL,
+  `景点图片` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`景点ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

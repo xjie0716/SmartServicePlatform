@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
-Source Server Version : 50015
-Source Host           : localhost:3306
+Source Server         : ssp
+Source Server Version : 50544
+Source Host           : 166.111.180.111:3306
 Source Database       : ssp
 
 Target Server Type    : MYSQL
-Target Server Version : 50015
+Target Server Version : 50544
 File Encoding         : 65001
 
-Date: 2015-06-04 23:36:29
+Date: 2015-06-09 22:18:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,23 +21,23 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `restaurantservice`;
 CREATE TABLE `restaurantservice` (
   `餐厅ID` int(11) NOT NULL,
-  `classid` int(11) NOT NULL default '12',
-  `餐厅名称` varchar(1000) default NULL,
-  `餐厅菜系` varchar(1000) default NULL,
-  `餐厅城区` varchar(1000) default NULL,
-  `餐厅区域` varchar(1000) default NULL,
-  `餐厅地址` varchar(1000) default NULL,
-  `餐厅营业时间` varchar(1000) default NULL,
-  `餐厅人均价格` int(11) default NULL,
-  `餐厅分类标签` varchar(3000) default NULL,
-  `餐厅综合评分` int(11) default NULL,
-  `餐厅口味评分` float default NULL,
-  `餐厅环境评分` float default NULL,
-  `餐厅服务评分` float default NULL,
-  `餐厅电话` varchar(1000) default NULL,
-  `餐厅链接` varchar(1000) default NULL,
-  `餐厅图片` varchar(1000) default NULL,
-  PRIMARY KEY  (`餐厅ID`)
+  `classid` int(11) NOT NULL DEFAULT '12',
+  `餐厅名称` varchar(1000) DEFAULT NULL,
+  `餐厅菜系` varchar(1000) DEFAULT NULL,
+  `餐厅城区` varchar(1000) DEFAULT NULL,
+  `餐厅区域` varchar(1000) DEFAULT NULL,
+  `餐厅地址` varchar(1000) DEFAULT NULL,
+  `餐厅营业时间` varchar(1000) DEFAULT NULL,
+  `餐厅人均价格` int(11) DEFAULT NULL,
+  `餐厅分类标签` varchar(3000) DEFAULT NULL,
+  `餐厅综合评分` int(11) DEFAULT NULL,
+  `餐厅口味评分` float DEFAULT NULL,
+  `餐厅环境评分` float DEFAULT NULL,
+  `餐厅服务评分` float DEFAULT NULL,
+  `餐厅电话` varchar(1000) DEFAULT NULL,
+  `餐厅链接` varchar(1000) DEFAULT NULL,
+  `餐厅图片` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`餐厅ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
