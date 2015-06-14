@@ -63,12 +63,11 @@
 <div class="container">
    
        <div class="col-md-4">
-
+	   <h4>已注册服务</h4>"
+       <hr>
+       <h4>平台服务</h4>
+       <hr>
        <%
-       out.println("<h4>已注册服务</h4>");
-       out.println("<hr>");
-       out.println("<h4>平台服务</h4>");
-       out.println("<hr>");
        ArrayList platservicelist=new ArrayList<PlatService>();
        PlatServiceDAO platservicedao=new PlatServiceDAO();
        platservicelist=platservicedao.GetGlobalLatestPlatService(5);

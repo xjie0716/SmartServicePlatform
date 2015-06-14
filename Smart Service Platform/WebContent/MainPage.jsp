@@ -87,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<h5><a href="<%=((HotelService)(hotelservicelist.get(i))).gethotelurl() %>" target="_blank"><%=((HotelService)(hotelservicelist.get(i))).gethotelservicename() %></a><br></h5>
 				<h6>最低价：<%=((HotelService)(hotelservicelist.get(i))).gethotelprice() %>；<%=((HotelService)(hotelservicelist.get(i))).gethoteltype() %>；<%=((HotelService)(hotelservicelist.get(i))).gethotelarea() %></h6>
 				<h6><%=((HotelService)(hotelservicelist.get(i))).gethoteladd() %></h6>
-				<IMG alt="" src="<%=((HotelService)(hotelservicelist.get(i))).gethotelpic() %>"  width=200 />
+				<IMG alt="" src="<%=((HotelService)(hotelservicelist.get(i))).gethotelpic() %>"  width=100 />
 	      <% }%>
 	  	</div>
 	  	
@@ -124,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<h6><%=((HotelService)(hotelservicelistrec.get(i))).gethoteladd()%></h6>
 
-					<IMG alt="" src="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelpic()%>" width=200 />
+					<IMG alt="" src="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelpic()%>" width=100 />
 		     <%   } %>
 			
       	</div>     
