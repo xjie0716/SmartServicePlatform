@@ -64,8 +64,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    
        <div class="col-md-4">
 
-	   	<h4>已注册服务</h4><hr>
-		<h4>平台服务</h4>
+	   	<h4>已注册服务</h4>
+	   	<div class="show-content">
+	   		<% 
+	   			ArrayList serviceclasslist = new ArrayList<ServiceClass>();
+	   			ServiceClassDAO serviceclassdao = new ServiceClassDAO();
+	   			serviceclasslist = serviceclassdao.SearchAllClassservice();
+	   			ServiceClass serviceclass = new ServiceClass();
+	   			for(int i = 0; i < serviceclasslist.size(); i++){
+	   				serviceclass = (ServiceClass)serviceclasslist.get(i);
+	   		%>
+	   				<h4>
+	   					<img class="level1" src="dist/images/arrowright.png" style="width:15px;height:15px;margin-right:5px;"/>
+	   					<span classid = "<%=serviceclass.getClassid() %>" table="<%= serviceclass.getClasstable() %>"><%= serviceclass.getClassname() %></span>
+	   				</h4>
+	   				
+	   		<% 
+	   			}
+	   		%>	
+	   	</div>
+	   	
+<!-- 		<h4>平台服务</h4>
        <%
 	       ArrayList platservicelist=new ArrayList<PlatService>();
 	       PlatServiceDAO platservicedao=new PlatServiceDAO();
@@ -89,6 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<h6><%=((HotelService)(hotelservicelist.get(i))).gethoteladd() %></h6>
 				<IMG alt="" src="<%=((HotelService)(hotelservicelist.get(i))).gethotelpic() %>"  width=100 />
 	      <% }%>
+ -->
 	  	</div>
 	  	
         <div class="col-md-4">  
@@ -97,40 +117,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	</div>
     	
         <div class="col-md-4">
-	        <h4>服务推荐</h4><hr>
-	        
-	        <h4>平台服务</h4><hr>
-	        <%
-		        ArrayList platservicelistrec=new ArrayList<PlatService>();
-		        PlatServiceDAO platservicedaorec=new PlatServiceDAO();
-		        platservicelistrec=platservicedaorec.GetGlobalLatestPlatService(5);
-		        for(int i=0;i<platservicelistrec.size();i++){
-		     %>
-		 		<h5><a href="<%=((PlatService)(platservicelistrec.get(i))).getplatserviceurl()%>"><%=((PlatService)(platservicelistrec.get(i))).getplatservicename()%></a><br></h5>	
-		 		<h6><%=((PlatService)(platservicelistrec.get(i))).getcontent()%></h6>
-		 		<p><%=((PlatService)(platservicelistrec.get(i))).getbirthday()%></p>
-		     <% } %>
-		        
-		        <h4>酒店服务</h4><hr>
-		     <%
-		        ArrayList hotelservicelistrec=new ArrayList<HotelService>();
-		        HotelServiceDAO hotelservicedaorec=new HotelServiceDAO();
-		        hotelservicelistrec=hotelservicedaorec.GetGlobalLatestHotelService(5);
-		        for(int i=0;i<hotelservicelistrec.size();i++){
-		     %>
-		 			<h5><a href="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelurl()%>" target="_blank"><%=((HotelService)(hotelservicelistrec.get(i))).gethotelservicename()%></a><br></h5>
-
-					<h6>最低价：<%=((HotelService)(hotelservicelistrec.get(i))).gethotelprice()%>;<%=((HotelService)(hotelservicelistrec.get(i))).gethoteltype()%>; <%=((HotelService)(hotelservicelistrec.get(i))).gethotelarea()%></h6>
-
-					<h6><%=((HotelService)(hotelservicelistrec.get(i))).gethoteladd()%></h6>
-
-					<IMG alt="" src="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelpic()%>" width=100 />
-		     <%   } %>
-			
+	        <h4>服务推荐</h4>
+	        <div class="show-content">
+		        <h4>平台服务</h4>
+		        <%
+			        ArrayList platservicelistrec=new ArrayList<PlatService>();
+			        PlatServiceDAO platservicedaorec=new PlatServiceDAO();
+			        platservicelistrec=platservicedaorec.GetGlobalLatestPlatService(5);
+			        for(int i=0;i<platservicelistrec.size();i++){
+			     %>
+			 		<h5><a href="<%=((PlatService)(platservicelistrec.get(i))).getplatserviceurl()%>"><%=((PlatService)(platservicelistrec.get(i))).getplatservicename()%></a><br></h5>	
+			 		<h6><%=((PlatService)(platservicelistrec.get(i))).getcontent()%></h6>
+			 		<p><%=((PlatService)(platservicelistrec.get(i))).getbirthday()%></p>
+			     <% } %>
+			        
+			        <h4>酒店服务</h4><hr>
+			     <%
+			        ArrayList hotelservicelistrec=new ArrayList<HotelService>();
+			        HotelServiceDAO hotelservicedaorec=new HotelServiceDAO();
+			        hotelservicelistrec=hotelservicedaorec.GetGlobalLatestHotelService(5);
+			        for(int i=0;i<hotelservicelistrec.size();i++){
+			     %>
+			 			<h5><a href="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelurl()%>" target="_blank"><%=((HotelService)(hotelservicelistrec.get(i))).gethotelservicename()%></a><br></h5>
+	
+						<h6>最低价：<%=((HotelService)(hotelservicelistrec.get(i))).gethotelprice()%>;<%=((HotelService)(hotelservicelistrec.get(i))).gethoteltype()%>; <%=((HotelService)(hotelservicelistrec.get(i))).gethotelarea()%></h6>
+	
+						<h6><%=((HotelService)(hotelservicelistrec.get(i))).gethoteladd()%></h6>
+	
+						<IMG alt="" src="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelpic()%>" width=100 />
+			     <%   } %>
+			</div>
       	</div>     
 
 </div>
-      
+<script>
+	$(".level1").click(function(){
+		var msg = "<ul><li><%=((ServiceClass)serviceclasslist.get(1)).getClassname() %></li></ul>";
+		$(this).parent().append(msg);	
+		alert("ok");
+		$(this).parent().find("ul").remove();
+        
+	});
+
+</script>      
 
   </body>
 </html>
