@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div class="col-md-4">
 
 	   	<h4>已注册服务</h4><hr>
-		<h4>平台服务</h4>
+		<h4>平台服务</h4><hr>
        <%
 	       ArrayList platservicelist=new ArrayList<PlatService>();
 	       PlatServiceDAO platservicedao=new PlatServiceDAO();
@@ -76,6 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<h6><%=((PlatService)(platservicelist.get(i))).getcontent() %></h6>
 				<p><%=((PlatService)(platservicelist.get(i))).getbirthday() %></p>
 	     <%  } %>
+	       <hr>
 	       
 	       <h4>酒店服务</h4><hr>
 	     <%  
@@ -89,6 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<h6><%=((HotelService)(hotelservicelist.get(i))).gethoteladd() %></h6>
 				<IMG alt="" src="<%=((HotelService)(hotelservicelist.get(i))).gethotelpic() %>"  width=100 />
 	      <% }%>
+	      <hr>
 	  	</div>
 	  	
         <div class="col-md-4">  
@@ -106,10 +108,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        platservicelistrec=platservicedaorec.GetGlobalLatestPlatService(5);
 		        for(int i=0;i<platservicelistrec.size();i++){
 		     %>
-		 		<h5><a href="<%=((PlatService)(platservicelistrec.get(i))).getplatserviceurl()%>"><%=((PlatService)(platservicelistrec.get(i))).getplatservicename()%></a><br></h5>	
+		 		<h5><a href="<%=((PlatService)(platservicelistrec.get(i))).getplatserviceurl()%>" target="_blank"><%=((PlatService)(platservicelistrec.get(i))).getplatservicename()%></a><br></h5>	
 		 		<h6><%=((PlatService)(platservicelistrec.get(i))).getcontent()%></h6>
 		 		<p><%=((PlatService)(platservicelistrec.get(i))).getbirthday()%></p>
 		     <% } %>
+		        <hr>
 		        
 		        <h4>酒店服务</h4><hr>
 		     <%
@@ -126,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<IMG alt="" src="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelpic()%>" width=100 />
 		     <%   } %>
-			
+				<hr>
       	</div>     
 
 </div>
