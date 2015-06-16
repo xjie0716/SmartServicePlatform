@@ -63,7 +63,7 @@
 <div class="container">
    
        <div class="col-md-4">
-	   <h4>已注册服务</h4>"
+	   <h4>已注册服务</h4>
        <hr>
        <h4>平台服务</h4>
        <hr>

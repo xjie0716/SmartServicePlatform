@@ -8,6 +8,9 @@ private static String url="jdbc:mysql://localhost:3306/ssp";
 private static String username="root";
 private static String password="0716";
 
+private static String url="jdbc:mysql://166.111.180.111:3306/ssp";
+private static String username="root";
+private static String password="root";
 
 public static Connection getConnection() throws SQLException, IllegalAccessException, ClassNotFoundException
 {
