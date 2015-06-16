@@ -66,6 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	   	<h4>已注册服务</h4>
 	   	<div class="show-content">
+<!--  使用serviceclass
 	   		<% 
 	   			ArrayList serviceclasslist = new ArrayList<ServiceClass>();
 	   			ServiceClassDAO serviceclassdao = new ServiceClassDAO();
@@ -82,33 +83,62 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   		<% 
 	   			}
 	   		%>	
+-->
+
+			
+<!-- 不使用serviceclass -->
+					<h4>
+	   					<img class="registed_service" src="dist/images/arrowright.png" style="width:15px;height:15px;margin-right:5px;"/>
+	   					<span >平台服务</span>
+	   				</h4>
+	   				<div class="registed_service_div">
+						<%
+					        ArrayList platservicelist_registed=new ArrayList<PlatService>();
+					        PlatServiceDAO platservicedao_registed=new PlatServiceDAO();
+					        platservicelist_registed=platservicedao_registed.GetGlobalLatestPlatService(5);
+					        for(int i=0;i<platservicelist_registed.size();i++){
+					     %>
+					 		<h5><a href="<%=((PlatService)(platservicelist_registed.get(i))).getplatserviceurl()%>">&nbsp&nbsp<%=((PlatService)(platservicelist_registed.get(i))).getplatservicename()%></a><br></h5>	
+					 		<h6>&nbsp&nbsp<%=((PlatService)(platservicelist_registed.get(i))).getcontent()%></h6>
+					 		<p>&nbsp&nbsp<%=((PlatService)(platservicelist_registed.get(i))).getbirthday()%></p>
+					     <% } %>
+	   				</div>
+	   				<h4>
+	   					<img class="registed_hotel" src="dist/images/arrowright.png" style="width:15px;height:15px;margin-right:5px;"/>
+	   					<span >酒店服务</span>
+	   				</h4>
+	   				<div class="registed_hotel_div">
+			   			<%
+					        ArrayList hotelservicelist_registed=new ArrayList<HotelService>();
+					        HotelServiceDAO hotelservicedao_registed=new HotelServiceDAO();
+					        hotelservicelist_registed=hotelservicedao_registed.GetGlobalLatestHotelService(5);
+					        for(int i=0;i<hotelservicelist_registed.size();i++){
+					     %>
+					 			<h5><a href="<%=((HotelService)(hotelservicelist_registed.get(i))).gethotelurl()%>" target="_blank">&nbsp&nbsp<%=((HotelService)(hotelservicelist_registed.get(i))).gethotelservicename()%></a><br></h5>
+			
+								<h6>&nbsp&nbsp最低价：<%=((HotelService)(hotelservicelist_registed.get(i))).gethotelprice()%>;&nbsp&nbsp<%=((HotelService)(hotelservicelist_registed.get(i))).gethoteltype()%>;&nbsp&nbsp<%=((HotelService)(hotelservicelist_registed.get(i))).gethotelarea()%></h6>
+			
+								<h6>&nbsp&nbsp<%=((HotelService)(hotelservicelist_registed.get(i))).gethoteladd()%></h6>
+								<div style="text-align: center;">
+									<IMG alt="" src="<%=((HotelService)(hotelservicelist_registed.get(i))).gethotelpic()%>" width=100 />
+								</div>
+					     <%   } %>
+	   				</div>
+	   				<h4>
+	   					<img class="registed_restaurant" src="dist/images/arrowright.png" style="width:15px;height:15px;margin-right:5px;"/>
+	   					<span >餐馆服务</span>
+	   				</h4>
+	   				<div class="registed_restaurant_div">
+	   				</div>
+	   				<h4>
+	   					<img class="registed_scenicspot" src="dist/images/arrowright.png" style="width:15px;height:15px;margin-right:5px;"/>
+	   					<span >景点服务</span>
+	   				</h4>
+	   				<div class="registed_scenicspot_div">
+	   				</div>
 	   	</div>
 	   	
-<!-- 		<h4>平台服务</h4>
-       <%
-	       ArrayList platservicelist=new ArrayList<PlatService>();
-	       PlatServiceDAO platservicedao=new PlatServiceDAO();
-	       platservicelist=platservicedao.GetGlobalLatestPlatService(5);
-	       for(int i=0;i<platservicelist.size();i++){
-	    %>
-				<h5><a href="<%=((PlatService)(platservicelist.get(i))).getplatserviceurl()%>" target="_blank"><%=((PlatService)(platservicelist.get(i))).getplatservicename()%></a><br></h5>
-				<h6><%=((PlatService)(platservicelist.get(i))).getcontent() %></h6>
-				<p><%=((PlatService)(platservicelist.get(i))).getbirthday() %></p>
-	     <%  } %>
-	       
-	       <h4>酒店服务</h4><hr>
-	     <%  
-	       ArrayList hotelservicelist=new ArrayList<HotelService>();
-	       HotelServiceDAO hotelservicedao=new HotelServiceDAO();
-	       hotelservicelist=hotelservicedao.GetGlobalLatestHotelService(5);
-	       for(int i=0;i<hotelservicelist.size();i++){
-	     %>
-				<h5><a href="<%=((HotelService)(hotelservicelist.get(i))).gethotelurl() %>" target="_blank"><%=((HotelService)(hotelservicelist.get(i))).gethotelservicename() %></a><br></h5>
-				<h6>最低价：<%=((HotelService)(hotelservicelist.get(i))).gethotelprice() %>；<%=((HotelService)(hotelservicelist.get(i))).gethoteltype() %>；<%=((HotelService)(hotelservicelist.get(i))).gethotelarea() %></h6>
-				<h6><%=((HotelService)(hotelservicelist.get(i))).gethoteladd() %></h6>
-				<IMG alt="" src="<%=((HotelService)(hotelservicelist.get(i))).gethotelpic() %>"  width=100 />
-	      <% }%>
- -->
+
 	  	</div>
 	  	
         <div class="col-md-4">  
@@ -152,14 +182,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </div>
 <script>
-	$(".level1").click(function(){
-		var msg = "<ul><li><%=((ServiceClass)serviceclasslist.get(1)).getClassname() %></li></ul>";
-		$(this).parent().append(msg);	
-		alert("ok");
-		$(this).parent().find("ul").remove();
-        
+	//页面加载时的函数
+	$(document).ready(function(){  
+    	//隐藏相关列表内容
+		$(".show-content div[class='registed_service_div']").hide();
+		$(".show-content div[class='registed_hotel_div']").hide();
 	});
 
+	$(".registed_service").click(function(){
+//		$(this).parent().append(msg);	
+//		alert("ok");
+//		$(this).parent().find("ul").remove();
+		
+		if ($(this).attr("src")=="dist/images/arrowright.png"){		//需要展开内容
+			//修改箭头
+			$(this).attr("src","dist/images/arrowdown.png");
+			//增加内容
+			$(".show-content div[class='registed_service_div']").show(100);
+		}else{														//需要删除内容
+			//修改箭头
+			$(this).attr("src","dist/images/arrowright.png");
+			//隐藏内容
+			$(".show-content div[class='registed_service_div']").hide(100);
+		}
+        
+	});
+	
+	$(".registed_hotel").click(function(){
+		if ($(this).attr("src")=="dist/images/arrowright.png"){		//需要展开内容
+			//修改箭头
+			$(this).attr("src","dist/images/arrowdown.png");
+			//增加内容
+			$(".show-content div[class='registed_hotel_div']").show(100);
+		}else{														//需要删除内容
+			//修改箭头
+			$(this).attr("src","dist/images/arrowright.png");
+			//隐藏内容
+			$(".show-content div[class='registed_hotel_div']").hide(100);
+		}
+        
+	});
 </script>      
 
   </body>
