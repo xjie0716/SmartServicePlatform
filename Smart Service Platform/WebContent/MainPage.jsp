@@ -214,7 +214,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					        for(int i=0;i<restaurantservicelistrec.size();i++){
 				 %>
 					 		<h5><a href="<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetRestaurantlink()%>">&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetRestaurantservicename()%></a><br></h5>	
-					 		<h6>&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetCookingstyle()%>;&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetDistrict()%>;&nbsp&nbsp<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetArea()%></h6>
+					 		<h6>&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetCookingstyle()%>;&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetDistrict()%>;&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetArea()%></h6>
 					 		<h6>&nbsp&nbsp人均价：<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetPriceperperson()%></h6>
 					 		<h6>&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetAddress()%></h6>
 					 		<div style="text-align: center;">
