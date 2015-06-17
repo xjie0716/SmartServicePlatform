@@ -102,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 								<h6>&nbsp&nbsp<%=((HotelService)(hotelservicelist_registed.get(i))).gethoteladd()%></h6>
 								<div style="text-align: center;">
-									<IMG alt="" src="<%=((HotelService)(hotelservicelist_registed.get(i))).gethotelpic()%>" width=100 />
+									<IMG alt="" src="<%=((HotelService)(hotelservicelist_registed.get(i))).gethotelpic()%>" width=150 />
 								</div>
 					     <%   } %>
 	   				</div>
@@ -123,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 		<h6>&nbsp&nbsp营业时间：<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetOpentime()%></h6>
 					 		<h6>&nbsp&nbsp<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetAddress()%></h6>
 					 		<div style="text-align: center;">
-									<IMG alt="" src="<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetRestaurantpic()%>" width=100 />
+									<IMG alt="" src="<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetRestaurantpic()%>" width=150 />
 							</div>
 					     <% } %>
 	   				</div>
@@ -143,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 		<h6>&nbsp&nbsp营业时间：<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetOpeningTime()%></h6>
 					 		<h6>&nbsp&nbsp<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetAddress()%></h6>
 					 		<div style="text-align: center;">
-									<IMG alt="" src="<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetScenicspotpic()%>" width=100 />
+									<IMG alt="" src="<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetScenicspotpic()%>" width=150 />
 							</div>
 					     <% } %>
 	   				</div>
@@ -174,7 +174,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   		<%}else{}%>
 	        
 	        <h4>服务推荐</h4>
-	        <div class="show-content">
+	        <div class="show-content" style="height:600px;">
 		        <div style="text-align: center;"><h4>平台服务</h4></div>
 		        <hr>
 		        <%
@@ -183,9 +183,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			        platservicelistrec=platservicedaorec.GetGlobalLatestPlatService(3);
 			        for(int i=0;i<platservicelistrec.size();i++){
 			     %>
-			 		<h5><a href="<%=((PlatService)(platservicelistrec.get(i))).getplatserviceurl()%>"><%=((PlatService)(platservicelistrec.get(i))).getplatservicename()%></a><br></h5>	
-			 		<h6><%=((PlatService)(platservicelistrec.get(i))).getcontent()%></h6>
-			 		<p><%=((PlatService)(platservicelistrec.get(i))).getbirthday()%></p>
+			 		<h5><a href="<%=((PlatService)(platservicelistrec.get(i))).getplatserviceurl()%>">&nbsp&nbsp<%=((PlatService)(platservicelistrec.get(i))).getplatservicename()%></a><br></h5>	
+			 		<h6>&nbsp&nbsp<%=((PlatService)(platservicelistrec.get(i))).getcontent()%></h6>
+			 		<p>&nbsp&nbsp<%=((PlatService)(platservicelistrec.get(i))).getbirthday()%></p>
 			     <% } %>
 			        <hr>
 			        <div style="text-align: center;"><h4>酒店服务</h4></div>
@@ -196,13 +196,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			        hotelservicelistrec=hotelservicedaorec.GetGlobalLatestHotelService(2);
 			        for(int i=0;i<hotelservicelistrec.size();i++){
 			     %>
-			 			<h5><a href="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelurl()%>" target="_blank"><%=((HotelService)(hotelservicelistrec.get(i))).gethotelservicename()%></a><br></h5>
+			 			<h5><a href="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelurl()%>" target="_blank">&nbsp&nbsp<%=((HotelService)(hotelservicelistrec.get(i))).gethotelservicename()%></a><br></h5>
 	
-						<h6>最低价：<%=((HotelService)(hotelservicelistrec.get(i))).gethotelprice()%>;<%=((HotelService)(hotelservicelistrec.get(i))).gethoteltype()%>; <%=((HotelService)(hotelservicelistrec.get(i))).gethotelarea()%></h6>
+						<h6>&nbsp&nbsp最低价：<%=((HotelService)(hotelservicelistrec.get(i))).gethotelprice()%>;<%=((HotelService)(hotelservicelistrec.get(i))).gethoteltype()%>; <%=((HotelService)(hotelservicelistrec.get(i))).gethotelarea()%></h6>
 	
-						<h6><%=((HotelService)(hotelservicelistrec.get(i))).gethoteladd()%></h6>
-	
-						<IMG alt="" src="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelpic()%>" width=100 />
+						<h6>&nbsp&nbsp<%=((HotelService)(hotelservicelistrec.get(i))).gethoteladd()%></h6>
+						<div style="text-align: center;">
+							<IMG alt="" src="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelpic()%>" width=150 />
+						</div>
 			     <%   } %>
 			     <hr>
 			        <div style="text-align: center;"><h4>餐馆服务</h4></div>
@@ -218,7 +219,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 		<h6>&nbsp&nbsp人均价：<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetPriceperperson()%></h6>
 					 		<h6>&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetAddress()%></h6>
 					 		<div style="text-align: center;">
-									<IMG alt="" src="<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetRestaurantpic()%>" width=100 />
+									<IMG alt="" src="<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetRestaurantpic()%>" width=150 />
 							</div>
 				 <% } %>
 				 <hr>
@@ -235,7 +236,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 		<h6>&nbsp&nbsp营业时间：<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetOpeningTime()%></h6>
 					 		<h6>&nbsp&nbsp<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetAddress()%></h6>
 					 		<div style="text-align: center;">
-									<IMG alt="" src="<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetScenicspotpic()%>" width=100 />
+									<IMG alt="" src="<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetScenicspotpic()%>" width=150 />
 							</div>
 				<% } %>
 			</div>

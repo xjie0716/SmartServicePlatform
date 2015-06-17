@@ -101,7 +101,7 @@
 			
 								<h6>&nbsp&nbsp<%=((HotelService)(hotelservicelist_registed.get(i))).gethoteladd()%></h6>
 								<div style="text-align: center;">
-									<IMG alt="" src="<%=((HotelService)(hotelservicelist_registed.get(i))).gethotelpic()%>" width=100 />
+									<IMG alt="" src="<%=((HotelService)(hotelservicelist_registed.get(i))).gethotelpic()%>" width=150 />
 								</div>
 					     <%   } %>
 	   				</div>
@@ -122,7 +122,7 @@
 					 		<h6>&nbsp&nbsp营业时间：<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetOpentime()%></h6>
 					 		<h6>&nbsp&nbsp<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetAddress()%></h6>
 					 		<div style="text-align: center;">
-									<IMG alt="" src="<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetRestaurantpic()%>" width=100 />
+									<IMG alt="" src="<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetRestaurantpic()%>" width=150 />
 							</div>
 					     <% } %>
 	   				</div>
@@ -142,7 +142,7 @@
 					 		<h6>&nbsp&nbsp营业时间：<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetOpeningTime()%></h6>
 					 		<h6>&nbsp&nbsp<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetAddress()%></h6>
 					 		<div style="text-align: center;">
-									<IMG alt="" src="<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetScenicspotpic()%>" width=100 />
+									<IMG alt="" src="<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetScenicspotpic()%>" width=150 />
 							</div>
 					     <% } %>
 	   				</div>
@@ -151,7 +151,7 @@
 	  	
         <div class="col-md-4">               
    		<%@include file="search.jsp" %>
-
+		  <div class="show-content" style="height:550px;margin-top:10px;">
    		<% 
    		//搜索平台服务
    		request.setCharacterEncoding("utf-8");
@@ -159,9 +159,8 @@
 	    String SearchPlatService=(String)request.getParameter("SearService");	     
 	    ArrayList platal=new ArrayList<PlatService>();
 		platal=platservicedaosearch.SearchPlatService(SearchPlatService);
-		out.println("<hr>");
 		if (platal.size() == 0) {
-       		out.println("<h4> 没有符合条件的平台服务。。</h4>");
+       		out.println("<h4> 没有符合条件的平台服务。</h4>");
        		out.println("<hr>");
        	} else {
       	out.println("<h4> 符合条件的平台服务:</h4>");
@@ -172,12 +171,11 @@
        	}
        	for(int i=0;i<size;i++){
 			//out.println("<h3>"+((PlatService)(platal.get(i))).getownername()+"</h3>");
-			out.println("<h5>"+"<a href=\""+((PlatService)(platal.get(i))).getplatserviceurl()+"\"target=\"_blank\">"+((PlatService)(platal.get(i))).getplatservicename()+"</a><br>"+"</h5>");
+			out.println("<h5>"+"<a href=\""+((PlatService)(platal.get(i))).getplatserviceurl()+"\"target=\"_blank\">&nbsp&nbsp"+((PlatService)(platal.get(i))).getplatservicename()+"</a><br>"+"</h5>");
 			//out.println("<h3>"+"<a href=\"/Smart_Service_Platform/UserInfo.jsp?userid="+((PlatService)(platal.get(i))).getownid()+"\">"+((PlatService)(platal.get(i))).getownername()+"</a><br>"+"</h3>");
-			out.println("<h6>"+((PlatService)(platal.get(i))).getcontent()+"</h6>");
-			out.println("<p>"+((PlatService)(platal.get(i))).getbirthday()+"</p>");
+			out.println("<h6>&nbsp&nbsp"+((PlatService)(platal.get(i))).getcontent()+"</h6>");
+			out.println("<p>&nbsp&nbsp"+((PlatService)(platal.get(i))).getbirthday()+"</p>");
         }  
-        out.println("<hr>");
        	}
        	//搜索酒店服务
        	HotelServiceDAO hotelservicedaosearch=new HotelServiceDAO();
@@ -185,7 +183,7 @@
 	    ArrayList hotelal=new ArrayList<HotelService>();
 		hotelal=hotelservicedaosearch.SearchHotelService(SearchHotelService);
        	if (hotelal.size() == 0) {
-       		out.println("<h4> 没有符合条件的酒店服务。。</h4>");
+       		out.println("<h4> 没有符合条件的酒店服务。</h4>");
        		out.println("<hr>");
        	} else {
       	out.println("<h4> 符合条件的酒店服务:</h4>");
@@ -196,18 +194,65 @@
        	}
         for(int i=0;i<size;i++){
 			//out.println("<h3>"+((HotelService)(hotelal.get(i))).getownername()+"</h3>");
-			out.println("<h5>"+"<a href=\""+((HotelService)(hotelal.get(i))).gethotelurl()+"\"target=\"_blank\">"+((HotelService)(hotelal.get(i))).gethotelservicename()+"</a><br>"+"</h5>");
+			out.println("<h5>"+"<a href=\""+((HotelService)(hotelal.get(i))).gethotelurl()+"\"target=\"_blank\">&nbsp&nbsp"+((HotelService)(hotelal.get(i))).gethotelservicename()+"</a><br>"+"</h5>");
 			//out.println("<h3>"+"<a href=\"/Smart_Service_Hotelform/UserInfo.jsp?userid="+((HotelService)(hotelal.get(i))).getownid()+"\">"+((HotelService)(hotelal.get(i))).getownername()+"</a><br>"+"</h3>");
-			out.println("<h6>"+"最低价："+((HotelService)(hotelal.get(i))).gethotelprice()+"；"+((HotelService)(hotelal.get(i))).gethoteltype()+"；"+((HotelService)(hotelal.get(i))).gethotelarea()+"</h6>");
-			out.println("<h6>"+((HotelService)(hotelal.get(i))).gethoteladd()+"</h6>");
-			out.println("<IMG alt=\"\" src="+((HotelService)(hotelal.get(i))).gethotelpic()+" width=\"200\" />");
+			out.println("<h6>&nbsp&nbsp"+"最低价："+((HotelService)(hotelal.get(i))).gethotelprice()+"；"+((HotelService)(hotelal.get(i))).gethoteltype()+"；"+((HotelService)(hotelal.get(i))).gethotelarea()+"</h6>");
+			out.println("<h6>&nbsp&nbsp"+((HotelService)(hotelal.get(i))).gethoteladd()+"</h6>");
+			out.println("<div style='text-align: center;'><IMG alt=\"\" src="+((HotelService)(hotelal.get(i))).gethotelpic()+" width=\"150\" /></div>");
         }  
-        out.println("<hr>");
        	}
   		//搜索餐馆服务
-  		
+  		RestaurantServiceDAO restaurantservicedaosearch=new RestaurantServiceDAO();
+	    String SearchRestaurantService=(String)request.getParameter("SearService");	     
+	    ArrayList restaurantal=new ArrayList<RestaurantService>();
+	    restaurantal=restaurantservicedaosearch.SearchRestaurantService(SearchRestaurantService);
+       	if (restaurantal.size() == 0) {
+       		out.println("<h4> 没有符合条件的餐馆服务。</h4>");
+       		out.println("<hr>");
+       	} else {
+      	out.println("<h4> 符合条件的餐馆服务:</h4>");
+       	out.println("<hr>");
+       	int size = restaurantal.size();
+       	if (restaurantal.size()>=10) {
+       		size = 10;
+       	}
+        for(int i=0;i<size;i++){
+			//out.println("<h3>"+((HotelService)(hotelal.get(i))).getownername()+"</h3>");
+			out.println("<h5>"+"<a href=\""+((RestaurantService)(restaurantal.get(i))).GetRestaurantlink()+"\"target=\"_blank\">&nbsp&nbsp"+((RestaurantService)(restaurantal.get(i))).GetRestaurantservicename()+"</a><br>"+"</h5>");
+			//out.println("<h3>"+"<a href=\"/Smart_Service_Hotelform/UserInfo.jsp?userid="+((HotelService)(hotelal.get(i))).getownid()+"\">"+((HotelService)(hotelal.get(i))).getownername()+"</a><br>"+"</h3>");
+			out.println("<h6>&nbsp&nbsp人均价："+((RestaurantService)(restaurantal.get(i))).GetPriceperperson()+"</h6>");
+			out.println("<h6>&nbsp&nbsp营业时间："+((RestaurantService)(restaurantal.get(i))).GetOpentime()+"</h6>");
+			out.println("<h6>&nbsp&nbsp"+((RestaurantService)(restaurantal.get(i))).GetAddress()+"</h6>");
+			out.println("<div style='text-align: center;'><IMG alt=\"\" src="+((RestaurantService)(restaurantal.get(i))).GetRestaurantpic()+" width=\"150\" /></div>");
+        }  
+       	}
   		//搜索景点服务
+  		ScenicspotServiceDAO scenicspotservicedaosearch=new ScenicspotServiceDAO();
+	    String SearchScenicspotService=(String)request.getParameter("SearService");	     
+	    ArrayList scenicspotal=new ArrayList<ScenicspotService>();
+	    scenicspotal=scenicspotservicedaosearch.SearchScenicSpotService(SearchScenicspotService);
+       	if (scenicspotal.size() == 0) {
+       		out.println("<h4> 没有符合条件的景点服务。</h4>");
+       		out.println("<hr>");
+       	} else {
+      	out.println("<h4> 符合条件的景点服务:</h4>");
+       	out.println("<hr>");
+       	int size = scenicspotal.size();
+       	if (scenicspotal.size()>=10) {
+       		size = 10;
+       	}
+        for(int i=0;i<size;i++){
+			//out.println("<h3>"+((HotelService)(hotelal.get(i))).getownername()+"</h3>");
+			out.println("<h5>"+"<a href=\""+((ScenicspotService)(scenicspotal.get(i))).GetScenicspotlink()+"\"target=\"_blank\">&nbsp&nbsp"+((ScenicspotService)(scenicspotal.get(i))).GetScenicspotname()+"</a><br>"+"</h5>");
+			//out.println("<h3>"+"<a href=\"/Smart_Service_Hotelform/UserInfo.jsp?userid="+((HotelService)(hotelal.get(i))).getownid()+"\">"+((HotelService)(hotelal.get(i))).getownername()+"</a><br>"+"</h3>");
+			out.println("<h6>&nbsp&nbsp门票："+((ScenicspotService)(scenicspotal.get(i))).GetTicket()+"</h6>");
+			out.println("<h6>&nbsp&nbsp开放时间："+((ScenicspotService)(scenicspotal.get(i))).GetOpeningTime()+"</h6>");
+			out.println("<h6>&nbsp&nbsp"+((ScenicspotService)(scenicspotal.get(i))).GetAddress()+"</h6>");
+			out.println("<div style='text-align: center;'><IMG alt=\"\" src="+((ScenicspotService)(scenicspotal.get(i))).GetScenicspotpic()+" width=\"150\" /></div>");
+        }  
+       	}
          %>
+         </div>
     	</div>
     	
         <div class="col-md-4">
@@ -221,9 +266,9 @@
 			        platservicelistrec=platservicedaorec.GetGlobalLatestPlatService(3);
 			        for(int i=0;i<platservicelistrec.size();i++){
 			     %>
-			 		<h5><a href="<%=((PlatService)(platservicelistrec.get(i))).getplatserviceurl()%>"><%=((PlatService)(platservicelistrec.get(i))).getplatservicename()%></a><br></h5>	
-			 		<h6><%=((PlatService)(platservicelistrec.get(i))).getcontent()%></h6>
-			 		<p><%=((PlatService)(platservicelistrec.get(i))).getbirthday()%></p>
+			 		<h5><a href="<%=((PlatService)(platservicelistrec.get(i))).getplatserviceurl()%>">&nbsp&nbsp<%=((PlatService)(platservicelistrec.get(i))).getplatservicename()%></a><br></h5>	
+			 		<h6>&nbsp&nbsp<%=((PlatService)(platservicelistrec.get(i))).getcontent()%></h6>
+			 		<p>&nbsp&nbsp<%=((PlatService)(platservicelistrec.get(i))).getbirthday()%></p>
 			     <% } %>
 			        <hr>
 			        <div style="text-align: center;"><h4>酒店服务</h4></div>
@@ -234,13 +279,14 @@
 			        hotelservicelistrec=hotelservicedaorec.GetGlobalLatestHotelService(2);
 			        for(int i=0;i<hotelservicelistrec.size();i++){
 			     %>
-			 			<h5><a href="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelurl()%>" target="_blank"><%=((HotelService)(hotelservicelistrec.get(i))).gethotelservicename()%></a><br></h5>
+			 			<h5><a href="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelurl()%>" target="_blank">&nbsp&nbsp<%=((HotelService)(hotelservicelistrec.get(i))).gethotelservicename()%></a><br></h5>
 	
-						<h6>最低价：<%=((HotelService)(hotelservicelistrec.get(i))).gethotelprice()%>;<%=((HotelService)(hotelservicelistrec.get(i))).gethoteltype()%>; <%=((HotelService)(hotelservicelistrec.get(i))).gethotelarea()%></h6>
+						<h6>&nbsp&nbsp最低价：<%=((HotelService)(hotelservicelistrec.get(i))).gethotelprice()%>;<%=((HotelService)(hotelservicelistrec.get(i))).gethoteltype()%>; <%=((HotelService)(hotelservicelistrec.get(i))).gethotelarea()%></h6>
 	
-						<h6><%=((HotelService)(hotelservicelistrec.get(i))).gethoteladd()%></h6>
-	
-						<IMG alt="" src="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelpic()%>" width=100 />
+						<h6>&nbsp&nbsp<%=((HotelService)(hotelservicelistrec.get(i))).gethoteladd()%></h6>
+						<div style="text-align: center;">
+							<IMG alt="" src="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelpic()%>" width=150 />
+						</div>
 			     <%   } %>
 			     <hr>
 			        <div style="text-align: center;"><h4>餐馆服务</h4></div>
@@ -256,7 +302,7 @@
 					 		<h6>&nbsp&nbsp人均价：<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetPriceperperson()%></h6>
 					 		<h6>&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetAddress()%></h6>
 					 		<div style="text-align: center;">
-									<IMG alt="" src="<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetRestaurantpic()%>" width=100 />
+									<IMG alt="" src="<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetRestaurantpic()%>" width=150 />
 							</div>
 				 <% } %>
 				 <hr>
@@ -273,7 +319,7 @@
 					 		<h6>&nbsp&nbsp营业时间：<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetOpeningTime()%></h6>
 					 		<h6>&nbsp&nbsp<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetAddress()%></h6>
 					 		<div style="text-align: center;">
-									<IMG alt="" src="<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetScenicspotpic()%>" width=100 />
+									<IMG alt="" src="<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetScenicspotpic()%>" width=150 />
 							</div>
 				<% } %>
 			</div>
