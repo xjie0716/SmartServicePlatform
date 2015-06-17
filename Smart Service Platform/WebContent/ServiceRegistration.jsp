@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>用户注册界面</title>
+<title>服务注册界面</title>
 <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.css" rel="stylesheet">
 
@@ -42,29 +42,34 @@ pre code { background: transparent; }
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      	<li><a href="/Smart_Service_Platform/Login.jsp">登录</a></li>
+
+      <%  
+	    HttpSession mysession=request.getSession();
+	    User user=(User)mysession.getValue("LogInUser");  
+       %>
+       <%if((request.getSession()).getValue("LogInUser")!=null){ %>
+	      <li><a href="/Smart_Service_Platform/UserInfo.jsp?userid= <%=((User)(request.getSession()).getValue("LogInUser")).getid() %>" target="_blank">您好,<%=((User)(request.getSession()).getValue("LogInUser")).getName() %></a></li>
+	      <li><a href="/Smart_Service_Platform/servlet/LogOut">注销</a></li>
+	   <% }else{ %>
+		      <li><a href="/Smart_Service_Platform/Login.jsp">登录</a></li>
+		     <li><a href="/Smart_Service_Platform/Register.jsp">注册</a></li>
+	   <% }%>     
+
       </ul>
     </nav>
   </div>
 </header>
 
 <div class="container">
-      <form  id="RegisterForm" name="RegisterForm" class="form-signin" role="form" method="service"  action="servlet/AddUser">
-        <h2 class="form-signin-heading">请注册</h2>
-        <input  id="name" name="name" type="text" class="form-control" placeholder="用户名" required autofocus>
-        <br> 
-        <input id="password" name="password" type="password" class="form-control"  placeholder="密码">
-         <br>
-        <input id="confirm_password" name="confirm_password" type="password" class="form-control"  placeholder="再次确认密码">
+      <form  id="RegisterForm" name="RegisterForm" class="form-signin" role="form" method="service"  action="servlet/AddPlatService">
+        <h2 class="form-signin-heading">平台服务注册</h2>
+        <input  id="platservicename" name="platservicename" type="text" class="form-control" placeholder="服务名称" required autofocus>
         <br>
-        <input id="type" name="type" type="text" class="form-control" placeholder="类型" required>
+        <textarea name="content" style="width:300px;height:200px;" placeholder="服务描述" required></textarea>
         <br>
-        <input id="email" name="email" type="text" class="form-control" placeholder="邮箱" required>
         <br>
-		<input id="age" name="age" type="text" class="form-control" placeholder="年龄" required>
-        <label class="checkbox">
-          <input type="checkbox" value="direct_to_mainpage">转向主页
-        </label>
+        <input id="platserviceurl" name="platserviceurl" type="text" class="form-control" placeholder="服务接口" required>
+        <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
       </form>
 

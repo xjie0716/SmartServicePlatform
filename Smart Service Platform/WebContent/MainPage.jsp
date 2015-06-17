@@ -147,6 +147,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	</div>
     	
         <div class="col-md-4">
+        	<%if((request.getSession()).getValue("LogInUser")!=null){
+        		String type = ((User)(request.getSession()).getValue("LogInUser")).getType();
+        		if(type.equals("管理员")){%>
+        			<form  class="form-signin" role="form" id="serviceregistration" target="_blank" action="/Smart_Service_Platform/ServiceRegistration.jsp" method="service">
+            		<h4>服务注册
+           			<button type="submit" class="btn btn-sm btn-primary">GO</button></h4>
+            		</form>
+            		<form  class="form-signin" role="form" id="servicemanagement" target="_blank" action="/Smart_Service_Platform/ServiceManagement.jsp" method="service">
+            		<h4>服务管理
+           			<button type="submit" class="btn btn-sm btn-primary">GO</button></h4>
+            		</form>
+     			<%}else{}%>
+	   		<%}else{}%>
+	        
 	        <h4>服务推荐</h4>
 	        <div class="show-content">
 		        <h4>平台服务</h4>
@@ -183,7 +197,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <script>
 	//页面加载时的函数
-	$(document).ready(function(){  
+	$(document).ready(function(){
     	//隐藏相关列表内容
 		$(".show-content div[class='registed_service_div']").hide();
 		$(".show-content div[class='registed_hotel_div']").hide();
