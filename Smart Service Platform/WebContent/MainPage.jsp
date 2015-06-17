@@ -129,12 +129,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   					<span >餐馆服务</span>
 	   				</h4>
 	   				<div class="registed_restaurant_div">
+	   				<%
+					        ArrayList restaurantservicelist_registed=new ArrayList<PlatService>();
+					        RestaurantServiceDAO restaurantservicedao_registed=new RestaurantServiceDAO();
+					        restaurantservicelist_registed=restaurantservicedao_registed.GetGlobalLatestRestaurantService(5);
+					        for(int i=0;i<restaurantservicelist_registed.size();i++){
+					     %>
+					 		<h5><a href="<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetRestaurantlink()%>">&nbsp&nbsp<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetRestaurantservicename()%></a><br></h5>	
+					 		<h6>&nbsp&nbsp<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetCookingstyle()%>;&nbsp&nbsp<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetDistrict()%>;&nbsp&nbsp<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetArea()%></h6>
+					 		<h6>&nbsp&nbsp人均价：<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetPriceperperson()%></h6>
+					 		<h6>&nbsp&nbsp营业时间：<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetOpentime()%></h6>
+					 		<h6>&nbsp&nbsp<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetAddress()%></h6>
+					 		<div style="text-align: center;">
+									<IMG alt="" src="<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetRestaurantpic()%>" width=100 />
+							</div>
+					     <% } %>
 	   				</div>
 	   				<h4>
 	   					<img class="registed_scenicspot" src="dist/images/arrowright.png" style="width:15px;height:15px;margin-right:5px;"/>
 	   					<span >景点服务</span>
 	   				</h4>
 	   				<div class="registed_scenicspot_div">
+	   				<%
+					        ArrayList scenicspotservicelist_registed=new ArrayList<PlatService>();
+					        ScenicspotServiceDAO scenicspotservicedao_registed=new ScenicspotServiceDAO();
+					        scenicspotservicelist_registed=scenicspotservicedao_registed.GetGlobalLatestScenicspotService(5);
+					        for(int i=0;i<scenicspotservicelist_registed.size();i++){
+					     %>
+					 		<h5><a href="<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetScenicspotlink()%>">&nbsp&nbsp<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetScenicspotname()%></a><br></h5>	
+					 		<h6>&nbsp&nbsp票价：<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetTicket()%></h6>
+					 		<h6>&nbsp&nbsp营业时间：<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetOpeningTime()%></h6>
+					 		<h6>&nbsp&nbsp<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetAddress()%></h6>
+					 		<div style="text-align: center;">
+									<IMG alt="" src="<%=((ScenicspotService)(scenicspotservicelist_registed.get(i))).GetScenicspotpic()%>" width=100 />
+							</div>
+					     <% } %>
 	   				</div>
 	   	</div>
 	   	
@@ -144,28 +173,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="col-md-4">  
                      
    		<%@include file="search.jsp" %>
+	    	
     	</div>
     	
         <div class="col-md-4">
 	        <h4>服务推荐</h4>
 	        <div class="show-content">
-		        <h4>平台服务</h4>
+		        <hr>
+		        <div style="text-align: center;"><h4>平台服务</h4></div>
+		        <hr>
 		        <%
 			        ArrayList platservicelistrec=new ArrayList<PlatService>();
 			        PlatServiceDAO platservicedaorec=new PlatServiceDAO();
-			        platservicelistrec=platservicedaorec.GetGlobalLatestPlatService(5);
+			        platservicelistrec=platservicedaorec.GetGlobalLatestPlatService(3);
 			        for(int i=0;i<platservicelistrec.size();i++){
 			     %>
 			 		<h5><a href="<%=((PlatService)(platservicelistrec.get(i))).getplatserviceurl()%>"><%=((PlatService)(platservicelistrec.get(i))).getplatservicename()%></a><br></h5>	
 			 		<h6><%=((PlatService)(platservicelistrec.get(i))).getcontent()%></h6>
 			 		<p><%=((PlatService)(platservicelistrec.get(i))).getbirthday()%></p>
 			     <% } %>
-			        
-			        <h4>酒店服务</h4><hr>
+			        <hr>
+			        <div style="text-align: center;"><h4>酒店服务</h4></div>
+			        <hr>
 			     <%
 			        ArrayList hotelservicelistrec=new ArrayList<HotelService>();
 			        HotelServiceDAO hotelservicedaorec=new HotelServiceDAO();
-			        hotelservicelistrec=hotelservicedaorec.GetGlobalLatestHotelService(5);
+			        hotelservicelistrec=hotelservicedaorec.GetGlobalLatestHotelService(2);
 			        for(int i=0;i<hotelservicelistrec.size();i++){
 			     %>
 			 			<h5><a href="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelurl()%>" target="_blank"><%=((HotelService)(hotelservicelistrec.get(i))).gethotelservicename()%></a><br></h5>
@@ -176,6 +209,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 						<IMG alt="" src="<%=((HotelService)(hotelservicelistrec.get(i))).gethotelpic()%>" width=100 />
 			     <%   } %>
+			     <hr>
+			        <div style="text-align: center;"><h4>餐馆服务</h4></div>
+			     <hr>
+			     <%
+					        ArrayList restaurantservicelistrec=new ArrayList<PlatService>();
+					        RestaurantServiceDAO restaurantservicedaorec=new RestaurantServiceDAO();
+					        restaurantservicelistrec=restaurantservicedaorec.GetGlobalLatestRestaurantService(2);
+					        for(int i=0;i<restaurantservicelistrec.size();i++){
+				 %>
+					 		<h5><a href="<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetRestaurantlink()%>">&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetRestaurantservicename()%></a><br></h5>	
+					 		<h6>&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetCookingstyle()%>;&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetDistrict()%>;&nbsp&nbsp<%=((RestaurantService)(restaurantservicelist_registed.get(i))).GetArea()%></h6>
+					 		<h6>&nbsp&nbsp人均价：<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetPriceperperson()%></h6>
+					 		<h6>&nbsp&nbsp<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetAddress()%></h6>
+					 		<div style="text-align: center;">
+									<IMG alt="" src="<%=((RestaurantService)(restaurantservicelistrec.get(i))).GetRestaurantpic()%>" width=100 />
+							</div>
+				 <% } %>
+				 <hr>
+			        <div style="text-align: center;"><h4>景点服务</h4></div>
+			     <hr>
+			     <%
+					        ArrayList scenicspotservicelistrec=new ArrayList<PlatService>();
+					        ScenicspotServiceDAO scenicspotservicedaorec=new ScenicspotServiceDAO();
+					        scenicspotservicelistrec=scenicspotservicedaorec.GetGlobalLatestScenicspotService(2);
+					        for(int i=0;i<scenicspotservicelistrec.size();i++){
+					     %>
+					 		<h5><a href="<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetScenicspotlink()%>">&nbsp&nbsp<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetScenicspotname()%></a><br></h5>	
+					 		<h6>&nbsp&nbsp票价：<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetTicket()%></h6>
+					 		<h6>&nbsp&nbsp营业时间：<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetOpeningTime()%></h6>
+					 		<h6>&nbsp&nbsp<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetAddress()%></h6>
+					 		<div style="text-align: center;">
+									<IMG alt="" src="<%=((ScenicspotService)(scenicspotservicelistrec.get(i))).GetScenicspotpic()%>" width=100 />
+							</div>
+				<% } %>
 			</div>
 	        
       	</div>     
@@ -187,6 +254,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	//隐藏相关列表内容
 		$(".show-content div[class='registed_service_div']").hide();
 		$(".show-content div[class='registed_hotel_div']").hide();
+		$(".show-content div[class='registed_restaurant_div']").hide();
+		$(".show-content div[class='registed_scenicspot_div']").hide();
+		
 	});
 
 	$(".registed_service").click(function(){
@@ -222,6 +292,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
         
 	});
+	
+	$(".registed_restaurant").click(function(){
+		if ($(this).attr("src")=="dist/images/arrowright.png"){		//需要展开内容
+			//修改箭头
+			$(this).attr("src","dist/images/arrowdown.png");
+			//增加内容
+			$(".show-content div[class='registed_restaurant_div']").show(100);
+		}else{														//需要删除内容
+			//修改箭头
+			$(this).attr("src","dist/images/arrowright.png");
+			//隐藏内容
+			$(".show-content div[class='registed_restaurant_div']").hide(100);
+		}
+        
+	});
+	
+	$(".registed_scenicspot").click(function(){
+		if ($(this).attr("src")=="dist/images/arrowright.png"){		//需要展开内容
+			//修改箭头
+			$(this).attr("src","dist/images/arrowdown.png");
+			//增加内容
+			$(".show-content div[class='registed_scenicspot_div']").show(100);
+		}else{														//需要删除内容
+			//修改箭头
+			$(this).attr("src","dist/images/arrowright.png");
+			//隐藏内容
+			$(".show-content div[class='registed_scenicspot_div']").hide(100);
+		}
+        
+	});
+	
 </script>      
 
   </body>
