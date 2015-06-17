@@ -64,6 +64,7 @@ public class AddUser extends HttpServlet {
 			User user=new User();
 			user.name=request.getParameter("name");
 			user.password=request.getParameter("password");
+			user.type=request.getParameter("type");
 			user.age=request.getParameter("age");
 			user.email=request.getParameter("email");
 			UserDAO userdao=new UserDAO();

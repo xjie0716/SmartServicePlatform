@@ -4,12 +4,14 @@ public class User {
 public int id;
 public String name;
 public String password;
+public String type;
 public String age;
 public String email;
 public User(User user){
 	this.id=user.id;
 	this.name=user.name;
 	this.password=user.password;
+	this.type=user.type;
 	this.email=user.email;
 	this.age=user.age;
 }
@@ -33,6 +35,12 @@ public void setPassword(String Password){
 }
 public String getPassword(){
 	return this.password;
+}
+public void setType(String Type){
+	this.type=Type;
+}
+public String getType(){
+	return this.type;
 }
 public void setAge(String Age){
 	this.age=Age;

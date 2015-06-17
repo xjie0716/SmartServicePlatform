@@ -77,11 +77,13 @@ public class UserDAO {
 			    System.out.println(resultSet.getString(3));
 			   System.out.println(resultSet.getString(4));
 			   System.out.println(resultSet.getString(5));
+			   System.out.println(resultSet.getString(6));
 			      user.id=resultSet.getInt(1);
 			      user.name=resultSet.getString(2);
 			     user.password=resultSet.getString(3);
-			     user.email=resultSet.getString(4);
-			     user.age=resultSet.getString(5);
+			     user.type=resultSet.getString(4);
+			     user.email=resultSet.getString(5);
+			     user.age=resultSet.getString(6);
 		  }
 			   DBManager.closeAll(connection, state, resultSet);		 		
 		return user;
@@ -100,8 +102,9 @@ public class UserDAO {
 			      user.id=resultSet.getInt(1);
 			      user.name=resultSet.getString(2);
 			     user.password=resultSet.getString(3);
-			     user.email=resultSet.getString(4);
-			     user.age=resultSet.getString(5);
+			     user.type=resultSet.getString(4);
+			     user.email=resultSet.getString(5);
+			     user.age=resultSet.getString(6);
 			     al.add(user);
 		  }
 			   DBManager.closeAll(connection, state, resultSet);		 		
@@ -116,16 +119,17 @@ public class UserDAO {
 		connection= DBManager.getConnection(); // 得到数据库连接
           
 		StringBuffer sqlState = new StringBuffer();
-		sqlState.append("INSERT INTO USER(name,password,age,email)");
-		sqlState.append(" VALUES(?,?,?,?)");
+		sqlState.append("INSERT INTO USER(name,password,type,age,email)");
+		sqlState.append(" VALUES(?,?,?,?,?)");
 		//System.out.println(sqlState);
 		try {
 
 			preState = connection.prepareStatement(sqlState.toString()); // 采用预处理方式
 			preState.setString(1, user.getName()); // 设置每个要插入的的属性
 			preState.setString(2, user.getPassword());
-			preState.setString(3,user.getAge());
-			preState.setString(4, user.getEmail());
+			preState.setString(3, user.getType());
+			preState.setString(4,user.getAge());
+			preState.setString(5, user.getEmail());
 
 		preState.executeUpdate();
 
