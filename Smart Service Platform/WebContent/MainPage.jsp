@@ -66,24 +66,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	   	<h4>已注册服务</h4>
 	   	<div class="show-content">
-<!--  使用serviceclass
-	   		<% 
-	   			ArrayList serviceclasslist = new ArrayList<ServiceClass>();
-	   			ServiceClassDAO serviceclassdao = new ServiceClassDAO();
-	   			serviceclasslist = serviceclassdao.SearchAllClassservice();
-	   			ServiceClass serviceclass = new ServiceClass();
-	   			for(int i = 0; i < serviceclasslist.size(); i++){
-	   				serviceclass = (ServiceClass)serviceclasslist.get(i);
-	   		%>
-	   				<h4>
-	   					<img class="level1" src="dist/images/arrowright.png" style="width:15px;height:15px;margin-right:5px;"/>
-	   					<span classid = "<%=serviceclass.getClassid() %>" table="<%= serviceclass.getClasstable() %>"><%= serviceclass.getClassname() %></span>
-	   				</h4>
-	   				
-	   		<% 
-	   			}
-	   		%>	
--->
 
 			
 <!-- 不使用serviceclass -->
@@ -193,7 +175,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        
 	        <h4>服务推荐</h4>
 	        <div class="show-content">
-		        <hr>
 		        <div style="text-align: center;"><h4>平台服务</h4></div>
 		        <hr>
 		        <%
