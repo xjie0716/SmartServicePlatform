@@ -93,8 +93,18 @@ public class CheckUserExist extends HttpServlet {
 		}
 		 HttpSession session=request.getSession();
 		 session.setAttribute("LogInUser", user);
+<<<<<<< .merge_file_iNLajV
 		 String tmp="/MainPage.jsp?UserId="+user.getid();
 		 request.getRequestDispatcher(tmp).forward(request, response);		 
+=======
+		 if(user.getType().equals("¹ÜÀíÔ±")) {
+			 String tmp="/MainPageDetailed.jsp?UserId="+user.getid();
+			 request.getRequestDispatcher(tmp).forward(request, response);
+		 } else {
+			 String tmp="/MainPage.jsp?UserId="+user.getid();
+			 request.getRequestDispatcher(tmp).forward(request, response);
+		 }
+>>>>>>> .merge_file_9f93sz
 		}
 		/*
 		response.setContentType("text/html");
