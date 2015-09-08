@@ -124,7 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="/Users/xu-j09/Desktop/SmartServicePlatform/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/xu-j09/Desktop/SmartServicePlatform/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Smart Service Platform" path="/Smart_Service_Platform" reloadable="true" source="org.eclipse.jst.jee.server:Smart Service Platform"/></Host>
+      <Context docBase="/Users/gaozhenfeng/SmartServicePlatform/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/gaozhenfeng/SmartServicePlatform/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Smart Service Platform" path="/Smart_Service_Platform" reloadable="true" source="org.eclipse.jst.jee.server:Smart Service Platform"/></Host>
     </Engine>
   </Service>
 </Server>

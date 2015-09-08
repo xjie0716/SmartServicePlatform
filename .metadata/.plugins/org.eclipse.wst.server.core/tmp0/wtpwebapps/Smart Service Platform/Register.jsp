@@ -9,7 +9,7 @@
     <link href="dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+    <link href="/Smart_Service_Platform/dist/css/signin.css" rel="stylesheet">
     <style>
 body{font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;}
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, .lead {font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;}
@@ -56,6 +56,8 @@ pre code { background: transparent; }
         <input id="password" name="password" type="password" class="form-control"  placeholder="密码">
          <br>
         <input id="confirm_password" name="confirm_password" type="password" class="form-control"  placeholder="再次确认密码">
+        <br>
+        <input id="type" name="type" type="text" class="form-control" placeholder="类型" required>
         <br>
         <input id="email" name="email" type="text" class="form-control" placeholder="邮箱" required>
         <br>
